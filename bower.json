@@ -1,0 +1,19 @@
+{
+  "name": "bookcloud",
+  "version": "0.0.1",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+   "dependencies": {
+    "bootstrap": "~3.1.1",
+    "jquery": "~2.1.1",
+    "angular": "~1.2.16",
+    "jquery.cookie": "~1.4.1",
+    "angular-bootstrap": "~0.11.0",
+    "jquery-ui": "~1.10.4",
+    "angular-ui-sortable": "~0.12.8",
+    "validator-js": "~3.16.1"
+  }
+}
