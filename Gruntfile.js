@@ -37,6 +37,32 @@ module.exports = function (grunt) {
         ],
         options: { livereload: reloadPort }
       }
+    },
+
+    less: {
+      development: {
+        files: [
+          {
+            expand: true,
+            cwd: 'public/less',
+            src: ['*.less'],
+            dest: 'public/css/',
+            ext: '.css'
+          }
+        ]
+      },
+
+      production: {
+        files: [
+          {
+            expand: true,
+            cwd: 'public/less',
+            src: ['*.less'],
+            dest: 'public/css/',
+            ext: '.css'
+          }
+        ]
+      }
     }
   });
 
@@ -57,6 +83,6 @@ module.exports = function (grunt) {
         });
     }, 500);
   });
-
-  grunt.registerTask('default', ['develop', 'watch']);
+  grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.registerTask('default', ['less', 'develop', 'watch']);
 };

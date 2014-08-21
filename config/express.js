@@ -8,6 +8,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var compress = require('compression');
 var methodOverride = require('method-override');
+var routes = require('../app/routes');
 
 module.exports = function(app, config) {
   app.set('views', config.root + '/app/views');
@@ -24,13 +25,13 @@ module.exports = function(app, config) {
   app.use(express.static(config.root + '/public'));
   app.use(methodOverride());
 
-  var controllersPath = path.join(__dirname, '../app/controllers');
-  fs.readdirSync(controllersPath).forEach(function (file) {
-    if (/\.js$/.test(file)) {
-      require(controllersPath + '/' + file)(app);
-    }
-  });
-
+  // var controllersPath = path.join(__dirname, '../app/controllers');
+  // fs.readdirSync(controllersPath).forEach(function (file) {
+  //   if (/\.js$/.test(file)) {
+  //     require(controllersPath + '/' + file)(app);
+  //   }
+  // });
+  routes(app);
   app.use(function (req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
